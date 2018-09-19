@@ -19,17 +19,23 @@ public class SampleData {
         Movie movie3 = new Movie("https://i.ytimg.com/vi/5-mWvUR7_P0/maxresdefault.jpg",
                 "action", "Ant Man", "this movie open in 2015.06");
 
-        items.add(movie1);
-        items.add(movie2);
-        items.add(movie3);
+        Movie movie4 = new Movie("http://file3.instiz.net/data/file3/2018/05/01/b/b/2/bb21bf11018f4ea384eb3d5beb8bd4bd.jpg",
+                "action", "Thor", "this movie open in 2017.10");
 
         items.add(movie1);
         items.add(movie2);
         items.add(movie3);
+        items.add(movie4);
 
         items.add(movie1);
         items.add(movie2);
         items.add(movie3);
+        items.add(movie4);
+
+        items.add(movie1);
+        items.add(movie2);
+        items.add(movie3);
+        items.add(movie4);
 
         return items;
     }
