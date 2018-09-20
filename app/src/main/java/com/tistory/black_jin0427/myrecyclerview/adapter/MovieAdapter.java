@@ -10,37 +10,43 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.tistory.black_jin0427.myrecyclerview.R;
+import com.tistory.black_jin0427.myrecyclerview.adapter.holder.MovieViewHolder;
+import com.tistory.black_jin0427.myrecyclerview.adapter.holder.TemplateHolder1;
+import com.tistory.black_jin0427.myrecyclerview.adapter.holder.TemplateHolder2;
+import com.tistory.black_jin0427.myrecyclerview.adapter.holder.TemplateHolder3;
 import com.tistory.black_jin0427.myrecyclerview.model.Movie;
 
 import java.util.ArrayList;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
+public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
     private ArrayList<Movie> items = new ArrayList<>();
 
     @NonNull
     @Override
-    public MovieAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+    public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, parent, false);
-        ViewHolder viewHolder = new ViewHolder(itemView);
+        switch (viewType) {
 
-        return viewHolder;
+            case 1: return TemplateHolder1.newInstance(parent);
+
+            case 2: return TemplateHolder2.newInstance(parent);
+
+            case 3: return TemplateHolder3.newInstance(parent);
+
+            default: return TemplateHolder1.newInstance(parent);
+        }
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MovieAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull MovieViewHolder viewHolder, int position) {
+        viewHolder.onBindView(items.get(position));
+    }
 
-        Movie item = items.get(position);
-
-        Glide.with(viewHolder.itemView.getContext())
-                .load(item.getUrl())
-                .into(viewHolder.ivMovie);
-
-        viewHolder.tvTitle.setText(item.getTitle());
-        viewHolder.tvContent.setText(item.getContent());
-        viewHolder.tvGenre.setText(item.getGenre());
-
+    @Override
+    public int getItemViewType(int position) {
+        return items.get(position).getViewType();
     }
 
     @Override
@@ -50,21 +56,5 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
     public void setItems(ArrayList<Movie> items) {
         this.items = items;
-    }
-
-    class ViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView ivMovie;
-        TextView tvTitle, tvContent, tvGenre;
-
-        ViewHolder(View itemView) {
-            super(itemView);
-
-            ivMovie = itemView.findViewById(R.id.iv_item_movie);
-
-            tvTitle = itemView.findViewById(R.id.tv_item_movie_title);
-            tvContent = itemView.findViewById(R.id.tv_item_movie_content);
-            tvGenre = itemView.findViewById(R.id.tv_item_movie_genre);
-        }
     }
 }

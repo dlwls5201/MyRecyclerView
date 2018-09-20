@@ -2,12 +2,13 @@ package com.tistory.black_jin0427.myrecyclerview.model;
 
 public class Movie {
 
-    private String url;
-    private String genre;
-    private String title;
-    private String content;
+    private int viewType;
 
-    public Movie(String url, String genre, String title, String content) {
+    private String url, genre, title, content;
+
+    public Movie(int viewType, String url, String genre, String title, String content) {
+
+        this.viewType = viewType;
 
         this.url = url;
         this.genre = genre;
@@ -15,6 +16,8 @@ public class Movie {
         this.content = content;
 
     }
+
+    public int getViewType() { return viewType; }
 
     public String getUrl() {
         return url;
@@ -31,4 +34,6 @@ public class Movie {
     public String getContent() {
         return content;
     }
+
+
 }

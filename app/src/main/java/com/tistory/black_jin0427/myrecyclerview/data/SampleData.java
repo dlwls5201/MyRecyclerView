@@ -10,32 +10,26 @@ public class SampleData {
 
     public ArrayList<Movie> getItems() {
 
-        Movie movie1 = new Movie("http://static.hubzum.zumst.com/hubzum/2018/02/06/09/962ec338ca3b4153b037168ec92756ac.jpg",
+        Movie movie1 = new Movie(1,"http://static.hubzum.zumst.com/hubzum/2018/02/06/09/962ec338ca3b4153b037168ec92756ac.jpg",
                 "action", "Black Panther", "this movie open in 2018.01");
 
-        Movie movie2 = new Movie("http://cfile1.uf.tistory.com/image/0138F14A517F77713A43A6",
+        Movie movie2 = new Movie(2,"http://cfile1.uf.tistory.com/image/0138F14A517F77713A43A6",
                 "action", "Iron Man 3", "this movie open in 2013.04");
 
-        Movie movie3 = new Movie("https://i.ytimg.com/vi/5-mWvUR7_P0/maxresdefault.jpg",
+        Movie movie3 = new Movie(3,"https://i.ytimg.com/vi/5-mWvUR7_P0/maxresdefault.jpg",
                 "action", "Ant Man", "this movie open in 2015.06");
 
-        Movie movie4 = new Movie("http://file3.instiz.net/data/file3/2018/05/01/b/b/2/bb21bf11018f4ea384eb3d5beb8bd4bd.jpg",
-                "action", "Thor", "this movie open in 2017.10");
+        items.add(movie1);
+        items.add(movie2);
+        items.add(movie3);
 
         items.add(movie1);
         items.add(movie2);
         items.add(movie3);
-        items.add(movie4);
 
         items.add(movie1);
         items.add(movie2);
         items.add(movie3);
-        items.add(movie4);
-
-        items.add(movie1);
-        items.add(movie2);
-        items.add(movie3);
-        items.add(movie4);
 
         return items;
     }
